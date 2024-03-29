@@ -42,6 +42,7 @@ function App() {
                     isDay: weatherData.current.isDay,
                     location: weatherData.location.name,
                     time: weatherData.location.localtime,
+                    icon: weatherData.current.condition.icon,
                   }}
                 ></Temperature>
               )}
@@ -84,7 +85,7 @@ function App() {
                 </>
               )}
             </div>
-            <div className="mt-28 w-1/3 h-1/3 ml-2">
+            <div className="mt-16 w-1/3 h-1/3 ml-2">
               {weatherData && <Forcast weather={weatherData.forecast} />}
             </div>
           </div>
