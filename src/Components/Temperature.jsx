@@ -2,18 +2,23 @@ import React from "react";
 
 export const Temperature = ({ setCity, stats }) => {
   const handleCityChange = (e) => {
-    setCity(e.target.value);
+    e.preventDefault();
+    setCity(e.target.elements.city.value);
   };
   return (
     <>
       <div className="flex justify-between">
-        <input
-          type="text"
-          className="bg-slate-600 border border-slate-500 text-slate-200 placeholder-slate-400 text-md w-60 p-2 focus:outline-none focus:border-slate-400"
-          placeholder="Enter Your City Name"
-          onChange={handleCityChange}
-          defaultValue="New Delhi"
-        ></input>
+        <form onSubmit={handleCityChange}>
+          <input
+            type="text"
+            name="city"
+            className="bg-slate-600 border border-slate-500 text-slate-200 placeholder-slate-400 text-md w-60 p-2 focus:outline-none focus:border-slate-400"
+            placeholder="Enter Your City Name"
+            required
+          ></input>
+          <button type="submit" style={{ display: "none" }}></button>
+        </form>
+
         <div className="m-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
